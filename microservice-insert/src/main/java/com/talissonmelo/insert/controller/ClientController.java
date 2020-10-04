@@ -3,13 +3,7 @@ package com.talissonmelo.insert.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.talissonmelo.insert.dto.ClientDto;
 import com.talissonmelo.insert.entity.Client;
@@ -33,11 +27,18 @@ public class ClientController {
        return ResponseEntity.ok().body(clientService.save(client));
     }
 
-    @PutMapping(value = "/update/{id}")
+    @PutMapping(value = "/{id}/update")
     @ResponseStatus(code = HttpStatus.OK)
     public ResponseEntity<?> update(@PathVariable Long id , @RequestBody ClientDto clientDto){
         Client client = Client.createClient(clientDto);
-        client = clientService.updateClient(client);
+        client = clientService.updateClient(id,client);
         return ResponseEntity.ok().body(client);
+    }
+
+    @DeleteMapping(value = "/{id}/delete")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public ResponseEntity<Void> deleteById(@PathVariable Long id ){
+         clientService.deleteClient(id);
+         return ResponseEntity.noContent().build();
     }
 }

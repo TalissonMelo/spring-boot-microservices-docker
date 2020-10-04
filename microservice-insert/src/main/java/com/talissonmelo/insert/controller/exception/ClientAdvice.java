@@ -1,5 +1,6 @@
 package com.talissonmelo.insert.controller.exception;
 
+import com.talissonmelo.insert.service.exception.DataBaseException;
 import com.talissonmelo.insert.service.exception.EntityNotFound;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,5 +17,12 @@ public class ClientAdvice {
 
         StandardError error = StandardError.builder().message(e.getMessage()).status(HttpStatus.NOT_FOUND.value()).build();
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    @ExceptionHandler(DataBaseException.class)
+    public ResponseEntity<StandardError> dataBaseViolation(DataBaseException e , HttpServletRequest request){
+
+        StandardError error = StandardError.builder().message(e.getMessage()).status(HttpStatus.CONFLICT.value()).build();
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(error);
     }
 }
