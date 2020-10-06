@@ -1,5 +1,6 @@
 package com.talissonmelo.insert.controller;
 
+import com.talissonmelo.insert.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,8 @@ import com.talissonmelo.insert.service.ClientService;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.List;
+
 @Slf4j
 @RestController
 @RequestMapping(value = "/clients")
@@ -18,6 +21,9 @@ public class ClientController {
 
     @Autowired
     private ClientService clientService;
+
+    @Autowired
+    private ClientRepository repository;
 
     @PostMapping(value = "/insert")
     @ResponseStatus(code = HttpStatus.CREATED)
@@ -40,5 +46,17 @@ public class ClientController {
     public ResponseEntity<Void> deleteById(@PathVariable Long id ){
          clientService.deleteClient(id);
          return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping(value = "/{id}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public Client findByClientId(@PathVariable Long id){
+        return  clientService.findById(id);
+    }
+
+    @GetMapping
+    @ResponseStatus(code = HttpStatus.OK)
+    public List<Client> findAllClients(){
+        return repository.findAll();
     }
 }
