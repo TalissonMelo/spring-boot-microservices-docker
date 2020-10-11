@@ -1,6 +1,6 @@
 package com.talissonmelo.insert.entity;
 
-import com.talissonmelo.insert.dto.RestaurantDto;
+import com.talissonmelo.insert.dto.MenuDto;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.modelmapper.ModelMapper;
@@ -10,18 +10,21 @@ import javax.persistence.*;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Data
-@Table(name = "tb_restaurant")
-public class Restaurant {
+@Table(name = "tb_menu")
+public class Menu {
 
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String email;
-    private String password;
+    private Double price;
 
-    public static Restaurant createRestaurant(RestaurantDto restaurantDto){
-        return new ModelMapper().map(restaurantDto, Restaurant.class);
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id")
+    private Restaurant restaurant;
+
+    public static Menu createMenu(MenuDto menuDto){
+        return new ModelMapper().map(menuDto, Menu.class);
     }
 }

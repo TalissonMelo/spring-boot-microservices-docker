@@ -1,8 +1,6 @@
 package com.talissonmelo.insert.service;
 
-import com.talissonmelo.insert.entity.Client;
 import com.talissonmelo.insert.entity.Restaurant;
-import com.talissonmelo.insert.repository.ClientRepository;
 import com.talissonmelo.insert.repository.RestaurantRepository;
 import com.talissonmelo.insert.service.exception.DataBaseException;
 import com.talissonmelo.insert.service.exception.EntityNotFound;

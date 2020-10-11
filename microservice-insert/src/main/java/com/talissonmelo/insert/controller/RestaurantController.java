@@ -1,12 +1,8 @@
 package com.talissonmelo.insert.controller;
 
-import com.talissonmelo.insert.dto.ClientDto;
 import com.talissonmelo.insert.dto.RestaurantDto;
-import com.talissonmelo.insert.entity.Client;
 import com.talissonmelo.insert.entity.Restaurant;
-import com.talissonmelo.insert.repository.ClientRepository;
 import com.talissonmelo.insert.repository.RestaurantRepository;
-import com.talissonmelo.insert.service.ClientService;
 import com.talissonmelo.insert.service.RestaurantService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
