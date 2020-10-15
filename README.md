@@ -19,7 +19,7 @@ Digite <strong> docker-compose up </strong> para start estes serviços e ele mes
 
 Docker Rodando acesse a url enderço ip da sua maquina e 9090 para abrir o link de acesso ao phpMimAdmin 
 
-Crie os banco de dados insert...
+Crie os banco de dados insert, order...
 
 ### Diagrama 
 
