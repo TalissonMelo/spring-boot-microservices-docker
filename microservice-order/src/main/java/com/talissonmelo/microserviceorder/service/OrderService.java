@@ -2,7 +2,7 @@ package com.talissonmelo.microserviceorder.service;
 
 import com.talissonmelo.microserviceorder.entity.Order;
 import com.talissonmelo.microserviceorder.repository.OrderRepository;
-import com.talissonmelo.microserviceorder.service.exception.EntityNotFound;
+import com.talissonmelo.microserviceorder.service.exception.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +17,6 @@ public class OrderService {
     }
 
     public Order findById(Long id){
-        return repository.findById(id).orElseThrow( () -> new EntityNotFound("Pedido nao encontrado!."));
+        return repository.findById(id).orElseThrow( () -> new EntityNotFoundException("Pedido nao encontrado!."));
     }
 }
