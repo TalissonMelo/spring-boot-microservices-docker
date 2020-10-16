@@ -21,4 +21,11 @@ public class OrderController {
         Order order = Order.createOrder(orderDto);
         return ResponseEntity.ok().body(service.insert(order));
     }
+
+    @GetMapping(value = "/{id}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public ResponseEntity<?> findByOrder(@PathVariable Long id){
+        Order order = service.findById(id);
+        return ResponseEntity.ok().body(order);
+    }
 }
