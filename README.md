@@ -30,8 +30,13 @@ Vamos ter uma API GATEWAY que atraves dela vamos nos comunicar aos microserviço
 ![exemplo](https://github.com/TalissonMelo/spring-boot-microservices-docker/blob/master/microservice-img/project.jpg)
 
 
-
-
 ![exemplo](https://github.com/TalissonMelo/spring-boot-microservices-docker/blob/master/microservice-img/api-gateway.jpg)
 ![exemplo](https://github.com/TalissonMelo/spring-boot-microservices-docker/blob/master/microservice-img/service-registry.jpg)
+
+## Service Broker 
+
+O Service Broker fornece enfileiramento e mensagens confiáveis para as requisições e respostas a mesma ajuda os desenvolvedores a compor aplicativos de componentes independentes denominados serviços. Os aplicativos que exigem a funcionalidade exposta nesses serviços usam mensagens para interagir com os serviços.
+
+O Service Broker usa TCP/IP para trocar mensagens entre instâncias. O Service Broker contém recursos para ajudar a impedir o acesso não autorizado da rede e para criptografar mensagens enviadas pela rede usa a comunicação assíncrona você envia a mensagem e acabo, caso o destinaria esteja indisponível o RabbitMQ guarda a mensagem e quando o service estiver disponível ele entrega a mensagem como no exemplo abaixo.
+
 ![exemplo](https://github.com/TalissonMelo/spring-boot-microservices-docker/blob/master/microservice-img/service-broker.jpg)
