@@ -1,6 +1,8 @@
 package com.talissonmelo.insert.service;
 
+import com.talissonmelo.insert.dto.ClientOrderDto;
 import com.talissonmelo.insert.entity.Client;
+import com.talissonmelo.insert.message.ClientSendMessage;
 import com.talissonmelo.insert.repository.ClientRepository;
 import com.talissonmelo.insert.service.exception.DataBaseException;
 import com.talissonmelo.insert.service.exception.EntityNotFound;
@@ -15,13 +17,19 @@ public class ClientService {
 
     @Autowired
     private ClientRepository clientRepository;
+    
+    @Autowired
+    private ClientSendMessage clientSendMessage;
 
     public Client save(Client client){
         return clientRepository.save(client);
     }
 
     public Client findById(Long id){
-        return clientRepository.findById(id).orElseThrow(() -> new EntityNotFound("Cliente não cadastrado!."));
+        Client client = clientRepository.findById(id)
+        		.orElseThrow(() -> new EntityNotFound("Cliente não cadastrado!."));
+        clientSendMessage.sendMessage(new ClientOrderDto(client.getId()));
+        return client;
     }
 
     public Client updateClient(Long id ,Client client){
