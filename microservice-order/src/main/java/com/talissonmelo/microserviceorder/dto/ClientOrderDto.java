@@ -1,4 +1,4 @@
-package com.talissonmelo.insert.dto;
+package com.talissonmelo.microserviceorder.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
