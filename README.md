@@ -31,6 +31,13 @@ Vamos ter uma API GATEWAY que atraves dela vamos nos comunicar aos microserviço
 
 
 ![exemplo](https://github.com/TalissonMelo/spring-boot-microservices-docker/blob/master/microservice-img/api-gateway.jpg)
+
+## Service Discovery
+
+O Service Discovery é um dos principais princípios da arquitetura baseada em microservices. Imagine que temos muitos serviços dinamicamente distribuídos na rede. Onde as instâncias de serviços mudam dinamicamente devido a escala automática, falhas, atualizações e não temos controle de endereços IP e nem o nome da instância.
+
+O ideal nessa situação seria que o serviço comunica-se ao servidor ou até mesmo a algum serviço que poderia chamá-lo que está disponível para ser requisitado.
+
 ![exemplo](https://github.com/TalissonMelo/spring-boot-microservices-docker/blob/master/microservice-img/service-registry.jpg)
 
 ## Service Broker 
@@ -40,3 +47,9 @@ O Service Broker fornece enfileiramento e mensagens confiáveis para as requisi�
 O Service Broker usa TCP/IP para trocar mensagens entre instâncias. O Service Broker contém recursos para ajudar a impedir o acesso não autorizado da rede e para criptografar mensagens enviadas pela rede usa a comunicação assíncrona você envia a mensagem e acabo, caso o destinaria esteja indisponível o RabbitMQ guarda a mensagem e quando o service estiver disponível ele entrega a mensagem como no exemplo abaixo.
 
 ![exemplo](https://github.com/TalissonMelo/spring-boot-microservices-docker/blob/master/microservice-img/service-broker.jpg)
+
+#### Desmistificando o Spring Cloud Netflix. 
+
+#### Disponível em: <https://www.infoq.com/br/articles/desmistificando-spring-cloud-netflix/>. 
+
+#### Acesso em: 24, out. 2020.
