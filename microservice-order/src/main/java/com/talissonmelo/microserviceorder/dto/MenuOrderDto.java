@@ -12,6 +12,6 @@ import lombok.ToString;
 @Setter
 @Getter
 public class MenuOrderDto {
-	private Long idClient;
+	private Long idMenu;
 	private Long idRestaurant;
 }
