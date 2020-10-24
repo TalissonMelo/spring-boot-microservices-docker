@@ -7,8 +7,10 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.talissonmelo.insert.dto.MenuDto;
+import com.talissonmelo.insert.dto.MenuOrderDto;
 import com.talissonmelo.insert.entity.Menu;
 import com.talissonmelo.insert.entity.Restaurant;
+import com.talissonmelo.insert.message.MenuSendMessage;
 import com.talissonmelo.insert.repository.MenuRepository;
 import com.talissonmelo.insert.service.exception.DataBaseException;
 import com.talissonmelo.insert.service.exception.EntityNotFound;
@@ -21,13 +23,18 @@ public class MenuService {
 
     @Autowired
     private RestaurantService restaurantService;
+    
+    @Autowired
+    private MenuSendMessage menuSendMessage;
 
     public Menu save(MenuDto menuDto){
 
         Restaurant restaurant = restaurantService.findById(menuDto.getRestaurant());
         Menu menu = Menu.createMenu(menuDto);
         menu.setRestaurant(restaurant);
-        return repository.save(menu);
+        Menu newMenu = repository.save(menu);
+        menuSendMessage.sendMessage(new MenuOrderDto(newMenu.getId(), newMenu.getRestaurant().getId()));
+        return newMenu;
     }
 
     public Menu findById(Long id){

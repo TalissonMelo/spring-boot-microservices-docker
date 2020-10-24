@@ -1,4 +1,4 @@
-package com.talissonmelo.microserviceorder.dto;
+package com.talissonmelo.insert.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,6 +12,7 @@ import lombok.ToString;
 @Setter
 @Getter
 public class MenuOrderDto {
+
 	private Long idClient;
 	private Long idRestaurant;
 }

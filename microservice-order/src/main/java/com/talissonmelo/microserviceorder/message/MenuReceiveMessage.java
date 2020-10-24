@@ -1,15 +1,16 @@
 package com.talissonmelo.microserviceorder.message;
 
 import com.talissonmelo.microserviceorder.dto.ClientOrderDto;
+import com.talissonmelo.microserviceorder.dto.MenuOrderDto;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ClientReceiveMessage {
+public class MenuReceiveMessage {
 
-    @RabbitListener(queues = {"${insert.client.rabbitmq.queue}"})
-    public void receiveMessage(@Payload ClientOrderDto clientOrderDto){
-        System.out.println(clientOrderDto);
+    @RabbitListener(queues = {"${insert.menu.rabbitmq.queu}"})
+    public void receiveMessage(@Payload MenuOrderDto menuOrderDto){
+        System.out.println(menuOrderDto);
     }
 }
