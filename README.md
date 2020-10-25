@@ -25,10 +25,16 @@ Crie os banco de dados insert, order...
 
 Onde vamos ter 3 microserviços um de insert, order e de Logon e cada um tem sua base de dados, temos tambem um service registry onde cada microserviço se conecta ao service registry e se registra no mesmo, para a comunicação entre microserviços vamos utilizar um service brocker sendo o RabbitMQ
 
-Vamos ter uma API GATEWAY que atraves dela vamos nos comunicar aos microserviços, temos um cliente que solicita um serviço a API Gateway e a mesma leva ao serviço especifico sendo o insert o  microservice de insert envia isso pra o service broker e com o RabbitMQ  comunica isso para o serviço de logon saber deste novo cadastro para autenticar os novos clientes.
+Vamos ter uma API GATEWAY que atraves dela vamos nos comunicar aos microserviços, temos um cliente que solicita um serviço a API Gateway e a mesma leva ao serviço especifico sendo o insert o  microserviço de insert envia isso pra o service broker e com o RabbitMQ  comunica isso para o serviço de logon saber sobre este novo cadastro e para autenticar os novos clientes.
 
 ![exemplo](https://github.com/TalissonMelo/spring-boot-microservices-docker/blob/master/microservice-img/project.jpg)
 
+## API Gateway 
+
+E uma aplicação que se registra no service registry, ela recebe uma notificação do cliente como por exemplo fazer um cadastro de cliente.
+A mesma verifica em qual microservice ela tem que ir atraves do service registry que vai passar o servidor, porta, caminho e o endereço IP do microservice desejado, e encaminha a requisição ao microservice de endpoint correto. 
+
+API GATEWAY faz com que o cliente nao consiga acessar diretamente nenhum microservice. 
 
 ![exemplo](https://github.com/TalissonMelo/spring-boot-microservices-docker/blob/master/microservice-img/api-gateway.jpg)
 
