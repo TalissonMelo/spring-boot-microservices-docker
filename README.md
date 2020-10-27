@@ -2,13 +2,13 @@
 
 ### Descrição do Projeto
 
-Esse projeto tem como objetivo inicial demonstrar o uso das tecnologias Spring Boot, Spring Cloud, RabbitMQ, Eureka Discovery, Zuul Gateway, Spring Security, Spring Web, MySQL, Lombok, Hibernate e Gradle Project.
+Esse projeto tem como objetivo inicial demonstrar o uso das tecnologias Spring Boot, Spring Cloud, Docker, RabbitMQ, Eureka Discovery, Zuul Gateway, Spring Security, Token JWT, Spring Web, MySQL, Lombok, Hibernate e Gradle Project.
 
 ## Informações relacionadas a IDE utilizada.
 Neste projeto usei a IDE "IntelliJ" Versão: 2020.2.2 Build: 202.7319.50
 
 ## Como replicar o projeto em meu ambiente de execução?
-Faça o download do projeto e e abra-o na IDE "IntelliJ IDEA"
+Faça o download do projeto e abra os microserviços na IDE "IntelliJ IDEA"
 
 #### Instale o Docker 
 Vamos subir o docker composer com alguns serviços que facilitam nosso desenvolvimento, alguns serviços que vamos usar junto ao docker como o RabbitMQ serviço de mensageria e o banco de dados MySQL e o phpMyAdmin interface visual feita em php para poder adiministar o MySQL
